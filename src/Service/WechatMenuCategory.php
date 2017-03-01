@@ -9,7 +9,7 @@ class WechatMenuCategory extends \miaoxing\plugin\BaseModel
     protected $table = 'wechatMenuCategories';
 
     protected $providers = [
-        'db' => 'app.db'
+        'db' => 'app.db',
     ];
 
     protected $conditionKeys = [
@@ -19,7 +19,7 @@ class WechatMenuCategory extends \miaoxing\plugin\BaseModel
         'province',
         'city',
         'clientPlatformType',
-        'language'
+        'language',
     ];
 
     protected $menuTypes = [
@@ -64,13 +64,13 @@ class WechatMenuCategory extends \miaoxing\plugin\BaseModel
 
     public function getLanguageName()
     {
-
         return $this['language'] ? $this->languages[$this['language']] : '';
     }
 
     public function getGroupName()
     {
         $this->group || $this->group = wei()->group()->findById($this['groupId']);
+
         return $this->group['name'];
     }
 
@@ -90,6 +90,7 @@ class WechatMenuCategory extends \miaoxing\plugin\BaseModel
         foreach ($this->languages as $key => $language) {
             $data[] = ['id' => $key, 'name' => $language];
         }
+
         return $data;
     }
 
@@ -99,6 +100,7 @@ class WechatMenuCategory extends \miaoxing\plugin\BaseModel
         foreach ($this->clientPlatformTypes as $key => $clientPlatformType) {
             $data[] = ['id' => $key, 'name' => $clientPlatformType];
         }
+
         return $data;
     }
 
@@ -118,6 +120,7 @@ class WechatMenuCategory extends \miaoxing\plugin\BaseModel
     public function getFirstLevelMenus()
     {
         $this->menus || $this->menus = wei()->weChatMenu()->where(['categoryId' => $this['id']])->enabled()->asc('sort')->findAll(['parentId' => 0]);
+
         return $this->menus;
     }
 

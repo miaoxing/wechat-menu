@@ -23,7 +23,7 @@ class WechatMenuCategories extends \miaoxing\plugin\BaseController
                 $menuCategories->limit($req['rows'])->page($req['page']);
                 $menuCategories->desc('sort');
 
-                $data = array();
+                $data = [];
                 foreach ($menuCategories->findAll() as $menuCategory) {
                     $data[] = $menuCategory->toArray() + [
                             'type' => $menuCategory->getMenuTypeName(),
@@ -35,12 +35,12 @@ class WechatMenuCategories extends \miaoxing\plugin\BaseController
                         ];
                 }
 
-                return $this->json('读取列表成功', 1, array(
+                return $this->json('读取列表成功', 1, [
                     'data' => $data,
                     'page' => $req['page'],
                     'rows' => $req['rows'],
                     'records' => $menuCategories->count(),
-                ));
+                ]);
 
             default:
                 return get_defined_vars();
@@ -55,6 +55,7 @@ class WechatMenuCategories extends \miaoxing\plugin\BaseController
     public function editAction($req)
     {
         $menuCategory = wei()->wechatMenuCategory()->curApp()->findId($req['id']);
+
         return get_defined_vars();
     }
 
@@ -66,7 +67,6 @@ class WechatMenuCategories extends \miaoxing\plugin\BaseController
                 if ($category && $category['id'] != $req['id']) {
                     return $this->err('已经有默认菜单了');
                 }
-
             } else {
                 $conditionKeys = wei()->wechatMenuCategory->getConditionKeys();
                 $has = false;
