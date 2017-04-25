@@ -76,7 +76,7 @@ class WechatMenuCategory extends \miaoxing\plugin\BaseModel
 
     public function getClientPlatformName()
     {
-        return $this['language'] ? $this->clientPlatforms[$this['clientPlatformType']] : '';
+        return $this['language'] ? $this->clientPlatformTypes[$this['clientPlatformType']] : '';
     }
 
     public function getGroup()
