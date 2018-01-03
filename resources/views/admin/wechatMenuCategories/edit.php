@@ -1,4 +1,7 @@
-<?php $view->layout() ?>
+<?php
+
+$view->layout();
+?>
 
 <div class="page-header">
   <a class="btn btn-default pull-right" href="<?= $url('admin/wechat-menu-categories') ?>">返回列表</a>
@@ -29,7 +32,7 @@
         </div>
 
         <div class="form-group">
-          <label class="col-lg-2 control-label" for="isDefault">
+          <label class="col-lg-2 control-label" for="is-default">
             <span class="text-warning">*</span>
             类型
           </label>
@@ -92,12 +95,12 @@
         <legend class="grey bigger-130">筛选条件</legend>
 
         <div class="form-group">
-          <label class="col-lg-2 control-label" for="groupId">
+          <label class="col-lg-2 control-label" for="group-id">
             分组
           </label>
 
           <div class="col-lg-4">
-            <select id="groupId" name="groupId" class="form-control">
+            <select id="group-id" name="groupId" class="js-group-id form-control">
               <option value="0">无</option>
             </select>
           </div>
@@ -166,19 +169,19 @@
           </label>
 
           <div class="col-lg-4 col-control">
-            <select id="language" name="language" class="form-control">
+            <select id="language" name="language" class="js-language form-control">
               <option value="">请选择</option>
             </select>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="clientPlatformType" class="col-lg-2 control-label">
+          <label for="client-platform-type" class="col-lg-2 control-label">
             客户端操作系统
           </label>
 
           <div class="col-lg-4 col-control">
-            <select id="clientPlatformType" name="clientPlatformType" class="form-control">
+            <select id="client-platform-type" name="clientPlatformType" class="js-client-platform-type form-control">
             </select>
           </div>
         </div>
@@ -208,9 +211,9 @@
 <?= $block('js') ?>
 <script>
   require(['form', 'jquery-deparam', 'validator', 'comps/jquery-cascading/jquery-cascading'], function (form) {
-    form.toOptions($('#groupId'), <?= json_encode(wei()->group()->where('wechatId != 0')->desc('sort')->fetchAll()) ?>, 'id', 'name');
-    form.toOptions($('#language'), <?= json_encode(wei()->wechatMenuCategory->getLanguagesForOptions()) ?>, 'id', 'name');
-    form.toOptions($('#clientPlatformType'), <?= json_encode(wei()->wechatMenuCategory->getClientPlatformTypesForOptions()) ?>, 'id', 'name');
+    form.toOptions($('.js-group-id'), <?= json_encode($groups) ?>, 'id', 'name');
+    form.toOptions($('.js-language'), <?= json_encode($languages) ?>, 'id', 'name');
+    form.toOptions($('.js-client-platform-type'), <?= json_encode($clientPlatformTypes) ?>, 'id', 'name');
 
     var category = <?= $menuCategory->toJson() ?>;
     $('.js-cascading-item').cascading({

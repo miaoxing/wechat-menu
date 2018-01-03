@@ -41,7 +41,8 @@
 
 
 <script id="menu-enabled-col-tpl" type="text/html">
-  <label><input type="checkbox" class="ace table-input" data-id="<%= id %>" value="1" name="enable" <% if (enable == "1") { %>checked<% } %>><span class="lbl"></span></label>
+  <label><input type="checkbox" class="ace table-input" data-id="<%= id %>" value="1" name="enable"
+    <% if (enable == "1") { %>checked<% } %>><span class="lbl"></span></label>
 </script>
 
 <script id="table-actions-tpl" type="text/html">
@@ -52,7 +53,8 @@
     <a href="<%= $.url('admin/wechat-menu-categories/edit', {id: id}) %>" title="编辑">
       <i class="fa fa-edit bigger-130"></i>
     </a>
-    <a class="text-danger delete-record" href="javascript:;" data-href="<%= $.url('admin/wechat-menu-categories/destroy', {id: id}) %>" title="删除">
+    <a class="text-danger delete-record" href="javascript:;"
+      data-href="<%= $.url('admin/wechat-menu-categories/destroy', {id: id}) %>" title="删除">
       <i class="fa fa-trash-o bigger-130"></i>
     </a>
   </div>

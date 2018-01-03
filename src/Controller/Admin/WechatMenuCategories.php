@@ -56,6 +56,10 @@ class WechatMenuCategories extends \miaoxing\plugin\BaseController
     {
         $menuCategory = wei()->wechatMenuCategory()->curApp()->findId($req['id']);
 
+        $groups = wei()->group()->where('wechatId != 0')->desc('sort')->fetchAll();
+        $languages = wei()->wechatMenuCategory->getLanguagesForOptions();
+        $clientPlatformTypes = wei()->wechatMenuCategory->getClientPlatformTypesForOptions();
+
         return get_defined_vars();
     }
 

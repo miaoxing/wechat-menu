@@ -3,9 +3,12 @@
 namespace plugins\wechatMenu\docs
 
 {
+
+    use Miaoxing\WechatMenu\Service\WechatMenuCategory;
+
     /**
-     * @method      \Miaoxing\WechatMenu\Service\WechatMenuCategory|\Miaoxing\WechatMenu\Service\WechatMenuCategory[] wechatMenuCategory() 微信菜单分类
-     * @property    \Miaoxing\WechatMenu\Service\WechatMenuCategory $wechatMenuCategory
+     * @method      WechatMenuCategory|WechatMenuCategory[] wechatMenuCategory() 微信菜单分类
+     * @property    WechatMenuCategory $wechatMenuCategory
      */
     class AutoComplete
     {

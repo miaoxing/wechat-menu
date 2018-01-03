@@ -119,7 +119,11 @@ class WechatMenuCategory extends \miaoxing\plugin\BaseModel
      */
     public function getFirstLevelMenus()
     {
-        $this->menus || $this->menus = wei()->weChatMenu()->where(['categoryId' => $this['id']])->enabled()->asc('sort')->findAll(['parentId' => 0]);
+        $this->menus || $this->menus = wei()->weChatMenu()
+            ->where(['categoryId' => $this['id']])
+            ->enabled()
+            ->asc('sort')
+            ->findAll(['parentId' => 0]);
 
         return $this->menus;
     }
