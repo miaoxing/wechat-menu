@@ -2,7 +2,7 @@
 
 namespace Miaoxing\WechatMenu\Controller\Admin;
 
-class WechatMenuCategories extends \miaoxing\plugin\BaseController
+class WechatMenuCategories extends \Miaoxing\Plugin\BaseController
 {
     protected $controllerName = '微信菜单分类管理';
 
