@@ -4,7 +4,7 @@ namespace Miaoxing\WechatMenu\Service;
 
 use Miaoxing\Wechat\Service\WeChatMenu;
 
-class WechatMenuCategory extends \miaoxing\plugin\BaseModel
+class WechatMenuCategory extends \Miaoxing\Plugin\BaseModel
 {
     protected $table = 'wechatMenuCategories';
 
