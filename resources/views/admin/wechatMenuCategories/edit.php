@@ -208,7 +208,7 @@ $view->layout();
 </div><!-- /.col -->
 <!-- /.row -->
 
-<?= $block('js') ?>
+<?= $block->js() ?>
 <script>
   require(['form', 'jquery-deparam', 'validator', 'comps/jquery-cascading/jquery-cascading'], function (form) {
     form.toOptions($('.js-group-id'), <?= json_encode($groups) ?>, 'id', 'name');
