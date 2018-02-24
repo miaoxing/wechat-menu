@@ -130,7 +130,10 @@
       $.ajax({
         url: $.queryUrl('admin/wechat-menu/publishWechatMenu'),
         type: 'post',
+        loading: true,
         dataType: 'json'
+      }).done(function (ret) {
+        $.msg(ret);
       });
     });
 
@@ -139,7 +142,10 @@
         $.ajax({
           url: $.queryUrl('admin/wechat-menu/deleteWechatMenu'),
           type: 'post',
+          loading: true,
           dataType: 'json'
+        }).done(function (ret) {
+          $.msg(ret);
         });
       });
     });
