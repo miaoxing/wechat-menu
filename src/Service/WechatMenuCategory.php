@@ -2,8 +2,12 @@
 
 namespace Miaoxing\WechatMenu\Service;
 
+use Miaoxing\UserTag\Service\UserTagModel;
 use Miaoxing\Wechat\Service\WeChatMenu;
 
+/**
+ * @property UserTagModel $userTag
+ */
 class WechatMenuCategory extends \Miaoxing\Plugin\BaseModel
 {
     protected $table = 'wechatMenuCategories';
@@ -12,7 +16,12 @@ class WechatMenuCategory extends \Miaoxing\Plugin\BaseModel
         'db' => 'app.db',
     ];
 
+    protected $data = [
+        'sort' => 50,
+    ];
+
     protected $conditionKeys = [
+        'tagId',
         'groupId',
         'sex',
         'country',
@@ -82,6 +91,11 @@ class WechatMenuCategory extends \Miaoxing\Plugin\BaseModel
     public function getGroup()
     {
         return wei()->group()->findById($this['groupId']);
+    }
+
+    public function userTag()
+    {
+        return $this->hasOne(wei()->userTagModel(), 'id', 'tagId');
     }
 
     public function getLanguagesForOptions()

@@ -94,17 +94,30 @@ $view->layout();
       <fieldset>
         <legend class="grey bigger-130">筛选条件</legend>
 
-        <div class="form-group">
-          <label class="col-lg-2 control-label" for="group-id">
-            分组
-          </label>
-
-          <div class="col-lg-4">
-            <select id="group-id" name="groupId" class="js-group-id form-control">
-              <option value="0">无</option>
-            </select>
+        <?php if (wei()->plugin->isInstalled('user-tag')) { ?>
+          <div class="form-group">
+            <label class="col-lg-2 control-label" for="tag-id">
+              标签
+            </label>
+            <div class="col-lg-4">
+              <select id="tag-id" name="tagId" class="js-tag-id form-control">
+                <option value="0">无</option>
+              </select>
+            </div>
           </div>
-        </div>
+        <?php } else { ?>
+          <div class="form-group">
+            <label class="col-lg-2 control-label" for="group-id">
+              分组
+            </label>
+
+            <div class="col-lg-4">
+              <select id="group-id" name="groupId" class="js-group-id form-control">
+                <option value="0">无</option>
+              </select>
+            </div>
+          </div>
+        <?php } ?>
 
         <div class="form-group">
           <label class="col-lg-2 control-label" for="sex">
@@ -212,6 +225,7 @@ $view->layout();
 <script>
   require(['form', 'jquery-deparam', 'validator', 'comps/jquery-cascading/jquery-cascading'], function (form) {
     form.toOptions($('.js-group-id'), <?= json_encode($groups) ?>, 'id', 'name');
+    form.toOptions($('.js-tag-id'), <?= json_encode($userTags) ?>, 'id', 'name');
     form.toOptions($('.js-language'), <?= json_encode($languages) ?>, 'id', 'name');
     form.toOptions($('.js-client-platform-type'), <?= json_encode($clientPlatformTypes) ?>, 'id', 'name');
 

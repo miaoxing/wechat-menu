@@ -3,7 +3,7 @@
 <!-- /.page-header -->
 <div class="page-header">
   <div class="pull-right">
-    <a class="btn btn-success" href="<?= $url('admin/wechat-menu-categories/new') ?>">添加个性化菜单</a>
+    <a class="btn btn-success" href="<?= $url('admin/wechat-menu-categories/new') ?>">添加菜单</a>
     <a class="btn btn-warning publish-wechat-menu" href="javascript:;">发布微信菜单</a>
     <a class="btn btn-default delete-wechat-menu" href="javascript:;">删除微信菜单</a>
   </div>
@@ -21,7 +21,7 @@
         <tr>
           <th>名称</th>
           <th>类型</th>
-          <th>用户分组</th>
+          <th><?= $hasUserTag ? '标签' : '用户分组' ?></th>
           <th>性别</th>
           <th>地区</th>
           <th>语言</th>
@@ -75,7 +75,7 @@
           data: 'type'
         },
         {
-          data: 'group'
+          data: '<?= $hasUserTag ? 'tagName' : 'group' ?>'
         },
         {
           data: 'sexName'

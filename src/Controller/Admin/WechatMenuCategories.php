@@ -28,6 +28,7 @@ class WechatMenuCategories extends \Miaoxing\Plugin\BaseController
                     $data[] = $menuCategory->toArray() + [
                             'type' => $menuCategory->getMenuTypeName(),
                             'group' => $menuCategory->getGroupName(),
+                            'tagName' => $menuCategory['tagId'] ? $menuCategory->userTag->name : '',
                             'sexName' => $menuCategory->getSexName(),
                             'region' => $menuCategory->getRegion(),
                             'languageName' => $menuCategory->getLanguageName(),
@@ -43,6 +44,7 @@ class WechatMenuCategories extends \Miaoxing\Plugin\BaseController
                 ]);
 
             default:
+                $hasUserTag = wei()->plugin->isInstalled('user-tag');
                 return get_defined_vars();
         }
     }
@@ -56,6 +58,7 @@ class WechatMenuCategories extends \Miaoxing\Plugin\BaseController
     {
         $menuCategory = wei()->wechatMenuCategory()->curApp()->findId($req['id']);
 
+        $userTags = wei()->userTag->getAll();
         $groups = wei()->group()->where('wechatId != 0')->desc('sort')->fetchAll();
         $languages = wei()->wechatMenuCategory->getLanguagesForOptions();
         $clientPlatformTypes = wei()->wechatMenuCategory->getClientPlatformTypesForOptions();
