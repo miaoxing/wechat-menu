@@ -17,7 +17,7 @@ $view->layout();
     <!-- PAGE detail BEGINS -->
     <form class="menu-category-form form form-horizontal" method="post" role="form">
       <fieldset>
-        <legend class="grey bigger-130">基本信息</legend>
+        <legend class="text-muted bigger-130">基本信息</legend>
         <input type="hidden" name="id" id="id">
 
         <div class="form-group">
@@ -92,7 +92,7 @@ $view->layout();
       </fieldset>
 
       <fieldset>
-        <legend class="grey bigger-130">筛选条件</legend>
+        <legend class="text-muted bigger-130">筛选条件</legend>
 
         <?php if (wei()->plugin->isInstalled('user-tag')) { ?>
           <div class="form-group">
