@@ -49,7 +49,7 @@ $view->layout();
           <label class="col-lg-6 help-text" for="isDefault">
             创建个性化菜单之前必须先创建默认菜单，默认菜单只能有一个
             <a href="http://mp.weixin.qq.com/wiki/0/c48ccd12b69ae023159b4bfaa7c39c20.html" target="_blank">
-              <i class="fa fa-external-link smaller-80"></i>
+              <i class="fa fa-external-link text-xs"></i>
             </a>
           </label>
         </div>
@@ -83,7 +83,7 @@ $view->layout();
           <label class="col-lg-6 help-text" for="isDefault">
             个性化菜单在匹配用户过程中按照从大到小开始匹配
             <a href="http://mp.weixin.qq.com/wiki/0/c48ccd12b69ae023159b4bfaa7c39c20.html" target="_blank">
-              <i class="fa fa-external-link smaller-80"></i>
+              <i class="fa fa-external-link text-xs"></i>
             </a>
           </label>
         </div>
