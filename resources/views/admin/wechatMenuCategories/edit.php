@@ -223,7 +223,7 @@ $view->layout();
 
 <?= $block->js() ?>
 <script>
-  require(['form', 'jquery-deparam', 'validator', 'comps/jquery-cascading/jquery-cascading'], function (form) {
+  require(['form', 'jquery-deparam', 'plugins/app/js/validation', 'comps/jquery-cascading/jquery-cascading'], function (form) {
     form.toOptions($('.js-group-id'), <?= json_encode($groups) ?>, 'id', 'name');
     form.toOptions($('.js-tag-id'), <?= json_encode($userTags) ?>, 'id', 'name');
     form.toOptions($('.js-language'), <?= json_encode($languages) ?>, 'id', 'name');
