@@ -2,7 +2,7 @@
 
 <!-- /.page-header -->
 <div class="page-header">
-  <div class="pull-right">
+  <div class="float-right">
     <a class="btn btn-success" href="<?= $url('admin/wechat-menu-categories/new') ?>">添加菜单</a>
     <a class="btn btn-warning publish-wechat-menu" href="javascript:;">发布微信菜单</a>
     <a class="btn btn-default delete-wechat-menu" href="javascript:;">删除微信菜单</a>
