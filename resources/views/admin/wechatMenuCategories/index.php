@@ -138,7 +138,7 @@
     });
 
     $('.delete-wechat-menu').click(function () {
-      $.confirm('删除微信菜单将无法还原,确认删除?', function (result) {
+      $.confirm('删除微信菜单将无法还原,确定删除?', function (result) {
         if (!result) {
           return;
         }
